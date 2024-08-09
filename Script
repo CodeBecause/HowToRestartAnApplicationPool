@@ -1,0 +1,13 @@
+# Define the application pool name
+$appPoolName = "YourAppPoolName"
+
+# Import the WebAdministration module
+Import-Module WebAdministration
+
+# Stop the application pool
+Stop-WebAppPool -Name $appPoolName
+Write-Output "Application pool '$appPoolName' stopped."
+
+# Start the application pool
+Start-WebAppPool -Name $appPoolName
+Write-Output "Application pool '$appPoolName' started."
