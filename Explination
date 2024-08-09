@@ -1,0 +1,41 @@
+Define the Application Pool Name:
+
+$appPoolName = "YourAppPoolName"
+
+This line defines a variable $appPoolName that holds the name of the IIS (Internet Information Services) application pool you want to manage.
+Replace "YourAppPoolName" with the actual name of the application pool you want to stop and start.
+
+
+Import the WebAdministration Module:
+
+Import-Module WebAdministration
+
+This line imports the WebAdministration module, which provides cmdlets for managing IIS, including application pools, websites, and other IIS components.
+If this module is not already loaded in the PowerShell session, this command ensures that the necessary cmdlets are available.
+
+Stop the Application Pool:
+
+Stop-WebAppPool -Name $appPoolName
+Write-Output "Application pool '$appPoolName' stopped."
+
+Stop-WebAppPool is a cmdlet from the WebAdministration module that stops the specified IIS application pool.
+The -Name parameter specifies the name of the application pool to stop, which is provided by the $appPoolName variable.
+After stopping the application pool, Write-Output prints a confirmation message to the console indicating that the application pool has been stopped.
+
+Start the Application Pool:
+
+Start-WebAppPool -Name $appPoolName
+Write-Output "Application pool '$appPoolName' started."
+
+Start-WebAppPool is a cmdlet from the WebAdministration module that starts the specified IIS application pool.
+
+The -Name parameter specifies the name of the application pool to start, using the same $appPoolName variable.
+After starting the application pool, Write-Output prints a confirmation message to the console indicating that the application pool has been started.
+Overall Functionality
+This PowerShell script is designed to manage an IIS application pool by performing two main tasks:
+
+Stop the Application Pool: Temporarily stops the specified application pool, which can be useful for maintenance, updates, or troubleshooting.
+
+Start the Application Pool: Restarts the application pool, allowing it to resume processing requests.
+
+This type of script is often used in scenarios where you need to refresh an application pool (e.g., after making configuration changes) or ensure it is in a clean state by stopping and starting it.
